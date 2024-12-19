@@ -4,7 +4,7 @@ const jobSchema = new mongoose.Schema(
     {
         title: { type: String, required: true },
         type: { type: String, enum: ["Part Time", "Full Time", "Contract"] },
-        company: { type: mongoose.Schema.Types.ObjectId, ref: "Company" },
+        company: { type: mongoose.Schema.Types.ObjectId, ref: "Company", required: true },
         location: { type: String, required: false },
         skills: [
             {
@@ -13,7 +13,7 @@ const jobSchema = new mongoose.Schema(
             },
         ],
         experience: {
-            years: { type: Number, required: false, default: 0 }, // Renamed from `type` to `years`
+            years: { type: Number, required: false, default: 0 },
             salary: { type: Number, required: false },
         },
         jobDescription: { type: String, required: true },

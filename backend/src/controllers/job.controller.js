@@ -3,7 +3,7 @@ import Jobs from "../models/job.model.js";
 // Get all jobs
 const getAllJobs = async (req, res) => {
     try {
-        const jobs = await Jobs.find({});
+        const jobs = await Jobs.find({}).populate("company");;
         return res.status(200).send(jobs);
     } catch (error) {
         return res.status(500).send({
